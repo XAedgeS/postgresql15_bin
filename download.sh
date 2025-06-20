@@ -8,7 +8,7 @@ wget -O elasticsearch/elasticsearch-9.0.0-amd64.deb https://artifacts.elastic.co
 wget -O elasticsearch/elasticsearch-9.0.0-amd64.deb.sha512 https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-9.0.0-amd64.deb.sha512
 wget -O elasticsearch/elasticsearch.gpg https://artifacts.elastic.co/GPG-KEY-elasticsearch
 
-wget -O opensearch/opensearch-3.0.0-linux-x64.tar.gz https://artifacts.opensearch.org/releases/bundle/opensearch/3.0.0/opensearch-3.0.0-linux-x64.tar.gz
+wget -O opensearch/opensearch-2.19.2-linux-x64.tar.gz https://artifacts.opensearch.org/releases/bundle/opensearch/2.19.2/opensearch-2.19.2-linux-x64.tar.gz
 
 wget -O minio/minio https://dl.min.io/server/minio/release/linux-amd64/minio
 wget -O minio/mc https://dl.min.io/client/mc/release/linux-amd64/mc
