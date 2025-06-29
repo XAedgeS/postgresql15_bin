@@ -1,0 +1,50 @@
+# admin/ecniI5z8u1uObxKK
+# bitbucket/O6Uw4vmJA1OP937e
+
+cluster.name: opensearch-cluster
+
+node.name: node1
+
+cluster.initial_cluster_manager_nodes: ["node1"]
+
+discovery.seed_hosts: ["10.22.3.11", "10.22.3.12", "10.22.3.13"]
+
+network.host: 0.0.0.0
+
+plugins.security.disabled: true
+
+path.data: /mnt/opensearch/data
+path.logs: /mnt/opensearch/logs
+
+# discovery.type: single-node
+
+#! /bin/bash
+
+# Before running this script, make sure to replace the /path/to your OpenSearch directory,
+# and remember to replace the CN in the node's distinguished name with a real
+# DNS A record.
+
+plugins.security.ssl.transport.pemcert_filepath: /u01/opensearch/certs/node1.pem
+plugins.security.ssl.transport.pemkey_filepath: /u01/opensearch/certs/node1-key.pem
+plugins.security.ssl.transport.pemtrustedcas_filepath: /u01/opensearch/certs/root-ca.pem
+plugins.security.ssl.transport.enforce_hostname_verification: false
+
+plugins.security.ssl.http.enabled: true
+plugins.security.ssl.http.pemcert_filepath: /u01/opensearch/certs/node1.pem
+plugins.security.ssl.http.pemkey_filepath: /u01/opensearch/certs/node1-key.pem
+plugins.security.ssl.http.pemtrustedcas_filepath: /u01/opensearch/certs/root-ca.pem
+
+# plugins.security.allow_unsafe_democertificates: true
+
+plugins.security.allow_default_init_securityindex: true
+plugins.security.authcz.admin_dn:
+  - 'CN=admin,OU=UNIT,O=ORG,L=HCM,ST=HCM,C=VN'
+plugins.security.nodes_dn:
+  - 'CN=node1.dns.a-record,OU=UNIT,O=ORG,L=HCM,ST=HCM,C=VN'
+  - 'CN=node2.dns.a-record,OU=UNIT,O=ORG,L=HCM,ST=HCM,C=VN'
+  - 'CN=node3.dns.a-record,OU=UNIT,O=ORG,L=HCM,ST=HCM,C=VN'
+
+plugins.security.audit.type: internal_opensearch
+plugins.security.enable_snapshot_restore_privilege: true
+plugins.security.check_snapshot_restore_write_privileges: true
+plugins.security.restapi.roles_enabled: [\"all_access\", \"security_rest_api_access\"]
